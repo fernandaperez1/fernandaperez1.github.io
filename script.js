@@ -1,35 +1,44 @@
-document.addEventListener("DOMContentLoaded", (event)=>{
+document.addEventListener("DOMContentLoaded", () => {
     getNews();
-})
+});
 
-async function getNews(){
-    const url = 'https://newsapi.org/v2/top-headlines?category=technology&apiKey=7d740bebb98c45e6b7167ea7cb1f144b'
-    await fetch(url).then(response=>response.json()).then(data=>{addNews(data.articles.slice(0,10))})
+async function getNews() {
+    const url = 'https://newsapi.org/v2/top-headlines?category=technology&apiKey=7d740bebb98c45e6b7167ea7cb1f144b';
+    const response = await fetch(url);
+    const data = await response.json();
+    addNews(data.articles.slice(0, 10));
 }
 
-function addNews(news){
-    const news_list = document.getElementsByClassName("news")[0];
+function addNews(news) {
+    const newsContainer = document.getElementById("news-container");
 
-    news.forEach(n=>{
-        const noticia = document.querySelector("li");
-        const news_title = document.createElement("h2");
-        const source = document.createElement("p");
-        const summary = document.createElement("p");
+    news.forEach(n => {
+        const row = document.createElement("div");
+        row.classList.add("row", "p-3", "border", "align-items-center");
+
+        const titleCol = document.createElement("div");
+        titleCol.classList.add("col-md-3", "fw-bold");
+        titleCol.textContent = n.title;
+
+        const summaryCol = document.createElement("div");
+        summaryCol.classList.add("col-md-6");
+        summaryCol.textContent = n.description || "No available description.";
+
+        const linkCol = document.createElement("div");
+        linkCol.classList.add("col-md-3", "text-center");
         const news_link = document.createElement("a");
-        news_title.textContent = n.title;
-        noticia.appendChild(news_title);
-        source.textContent = n.source.name;
-        noticia.appendChild(source);
-        summary.textContent = n.description;
-        noticia.appendChild(summary);
-        news_link.textContent = "Read the full news";
+        news_link.textContent = "Read more";
         news_link.href = n.url;
-        noticia.appendChild(news_link);
-        news_list.appendChild(noticia);
-        console.log("AAAAA: ", news_list);
-    })
-}
+        news_link.target = "_blank";
+        news_link.classList.add("btn", "btn-primary", "btn-sm");
+        linkCol.appendChild(news_link);
 
+        row.appendChild(titleCol);
+        row.appendChild(summaryCol);
+        row.appendChild(linkCol);
+        newsContainer.appendChild(row);
+    });
+}
 
 function showMuffin() {
     const input = document.getElementById('userInput').value.toLowerCase();
