@@ -1,3 +1,36 @@
+document.addEventListener("DOMContentLoaded", (event)=>{
+    getNews();
+})
+
+async function getNews(){
+    const url = 'https://newsapi.org/v2/top-headlines?category=technology&apiKey=7d740bebb98c45e6b7167ea7cb1f144b'
+    await fetch(url).then(response=>response.json()).then(data=>{addNews(data.articles.slice(0,10))})
+}
+
+function addNews(news){
+    const news_list = document.getElementsByClassName("news")[0];
+
+    news.forEach(n=>{
+        const noticia = document.querySelector("li");
+        const news_title = document.createElement("h2");
+        const source = document.createElement("p");
+        const summary = document.createElement("p");
+        const news_link = document.createElement("a");
+        news_title.textContent = n.title;
+        noticia.appendChild(news_title);
+        source.textContent = n.source.name;
+        noticia.appendChild(source);
+        summary.textContent = n.description;
+        noticia.appendChild(summary);
+        news_link.textContent = "Read the full news";
+        news_link.href = n.url;
+        noticia.appendChild(news_link);
+        news_list.appendChild(noticia);
+        console.log("AAAAA: ", news_list);
+    })
+}
+
+
 function showMuffin() {
     const input = document.getElementById('userInput').value.toLowerCase();
     const imageContainer = document.getElementById('imageContainer');

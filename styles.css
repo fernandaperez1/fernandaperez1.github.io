@@ -9,6 +9,13 @@ body {
     color: white; 
 }
 
+.container-fluid {
+    background-color: #000000;
+    text-align: center;
+    height: 100px;
+    
+}
+
 a {
     color: #2b95ff;
     text-decoration: none; 
@@ -47,7 +54,8 @@ a img{
 
 #box {
     width: 200px;
-    height: 70px; 
+    height: 100px; 
+    margin: 1cm;
     background-color: rgba(60, 31, 146, 0.367); 
     border: 3px solid rgb(59, 39, 240); 
     border-radius: 10px; 
