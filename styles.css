@@ -25,8 +25,8 @@ a img{
     display: block;
 }
 
-.container {
-    width: 50%;
+.container-propio {
+    width: 90%;
     margin: auto;
     background: rgb(32, 18, 68);
     padding: 20px;
@@ -38,14 +38,14 @@ a img{
     display: inline-block;
 }
 
-.container-boxes {
+#container-boxes {
     display: flex; 
     flex-wrap: wrap; 
     gap: 15px; 
     justify-content: center; 
 }
 
-.box {
+#box {
     width: 200px;
     height: 70px; 
     background-color: rgba(60, 31, 146, 0.367); 
@@ -62,7 +62,7 @@ a img{
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.box strong {
+#box strong {
     font-size: 20px; 
     font-family: 'Handjet', monospace;
     margin-bottom: 5px; 
@@ -84,11 +84,12 @@ a img{
 h1 {
     font-family: 'Press Start 2P', monospace;
     color: white; 
+    font-size: 40px;
 }
 
 h2 {
     font-family: 'Silkscreen', serif;
-    font-size: 20px;
+    font-size: 30px;
     color: white;
 }
 
