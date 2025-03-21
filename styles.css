@@ -9,6 +9,12 @@ body {
     color: white; 
 }
 
+.news-title {
+    font-family: 'Silkscreen', sans-serif; 
+    font-size: 1.2rem; 
+    color: white;  
+}
+
 .container-fluid {
     background-color: #000000;
     text-align: center;
@@ -249,9 +255,10 @@ img {
     }
 
     #box {
+        margin: 20px auto;
         font-size: 1em;
-        width: 100px;
-        height: 60px
+        width: 150px;
+        height: 80px
     }
 
     #box strong {

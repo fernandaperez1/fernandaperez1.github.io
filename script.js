@@ -17,9 +17,9 @@ function addNews(news) {
         row.classList.add("row", "p-3", "border", "align-items-center");
 
         const titleCol = document.createElement("div");
-        titleCol.classList.add("col-md-3", "fw-bold");
+        titleCol.classList.add("col-md-3", "fw-bold", "news-title"); 
         titleCol.textContent = n.title;
-
+        
         const summaryCol = document.createElement("div");
         summaryCol.classList.add("col-md-6");
         summaryCol.textContent = n.description || "No available description.";
