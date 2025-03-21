@@ -243,18 +243,18 @@ img {
         padding: 0%;
     }
 
-    .container {
+    .container-propio {
         width: 80%; 
         max-width: none; 
     }
 
-    .box {
+    #box {
         font-size: 1em;
         width: 100px;
         height: 60px
     }
 
-    .box strong {
+    #box strong {
         font-size: 1em;
     }
 
